@@ -27,3 +27,12 @@ const LinkSchema = new Schema({
 export const LinkModel = model("Links", LinkSchema);
 
 export const ContentModel = model("Content", ContentSchema);
+
+const TagSchema = new Schema({
+    title: { type: String, required: true, unique: true }
+
+}); 
+
+export const TagModel = model("Tag", TagSchema)
+
+
