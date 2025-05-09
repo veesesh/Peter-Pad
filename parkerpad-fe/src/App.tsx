@@ -12,14 +12,14 @@ function App() {
     startIcon={<ShareIcon size="lg"/>}
     variant="primary" 
     title= "Share" 
-    size="md" 
+    size="lg" 
     onClick={() => console.log('clicked')} 
     />
 
     <Button 
     startIcon={<PlusIcon size = "lg" />} 
     variant="secondary" 
-    size="md" 
+    size="lg" 
     title= "Add Content"  
     onClick={() => console.log('clicked')} 
     />

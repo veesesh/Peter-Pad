@@ -24,8 +24,10 @@ export const Button = (props: ButtonInterface) => {
    
     return <button className = {`${variantStyles[props.variant]} ${defaultStyles} ${sizeStyles[props.size]}`}> 
 
-    {props.startIcon? <div className="pr-2">{props.startIcon}</div>: null}
-    {props.title} 
+    {props.startIcon? <div className="pr-2 pl-2">{props.startIcon}</div>: null}
+    <div className="pl-2 pr-2">
+                {props.title}
+            </div>
     {props.endIcon}
     
     </button>
