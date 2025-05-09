@@ -1,15 +1,29 @@
 
 import './App.css'
 import { PlusIcon } from './assets/Icons/PlusIcon'
+import { ShareIcon } from './assets/Icons/ShareIcon'
 import { Button } from './components/ui/Button'
 
 function App() {
   
   return (
-    <>
-    <Button startIcon={<PlusIcon/>} variant="primary" title= "Add Content" size="lg" onClick={() => console.log('clicked')} />
-    <Button variant="secondary" title= "Share" size="lg" onClick={() => console.log('clicked')} />
-    </>
+    <div className='flex justify gap-4 p-4'>
+    <Button  
+    startIcon={<ShareIcon size="lg"/>}
+    variant="primary" 
+    title= "Share" 
+    size="md" 
+    onClick={() => console.log('clicked')} 
+    />
+
+    <Button 
+    startIcon={<PlusIcon size = "lg" />} 
+    variant="secondary" 
+    size="md" 
+    title= "Add Content"  
+    onClick={() => console.log('clicked')} 
+    />
+    </div>
   )
 }
 
