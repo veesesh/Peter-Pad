@@ -39,7 +39,6 @@ app.post("/api/v1/signup", async (req,res) => {
     }
 })
 
-
 app.post("/api/v1/signin", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
@@ -80,7 +79,6 @@ app.post("/api/v1/content",userMiddleware, async (req,res) => {
     })
 })
 
-
 app.get("/api/v1/content", userMiddleware, async (req,res) => { 
     //@ts-ignore
     const userId = req.userId;
@@ -108,6 +106,7 @@ app.delete("/api/v1/content", userMiddleware, async (req,res) => {
     })
 
 })
+
 app.post("/api/v1/brain/share", userMiddleware, async (req, res) => {
     const share = req.body.share;
     if (share) {
@@ -145,19 +144,21 @@ app.post("/api/v1/brain/share", userMiddleware, async (req, res) => {
 })
 
 app.get("/api/v1/brain/:shareLink", async (req, res) => {
-    const hash = req.params.shareLink;
+    const hash = req.params.shareLink; // okay
 
     const link = await LinkModel.findOne({
         hash
     });
-
+// power of aggregation 3 separate sequential db request   
     if (!link) {
         res.status(411).json({
             message: "Sorry incorrect input"
         })
+        console.log(link)
+        // link can be null so early return; 
         return;
     }
-    // userId
+    // userId if exists; need to find it's brain
     const content = await ContentModel.find({
         userId: link.userId
     })
