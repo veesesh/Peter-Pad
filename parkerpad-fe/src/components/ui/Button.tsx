@@ -6,7 +6,7 @@ interface ButtonInterface {
     startIcon?: ReactElement;
     endIcon?: ReactElement;
     variant: "primary" | "secondary";
-    onClick: () => void;
+    onClick?: () => void;
 }
 const variantStyles = {
     "primary": "bg-purple-300 text-black",
@@ -22,7 +22,7 @@ const defaultStyles = "rounded-md flex items-center"
 
 export const Button = (props: ButtonInterface) => {
    
-    return <button className = {`${variantStyles[props.variant]} ${defaultStyles} ${sizeStyles[props.size]}`}> 
+    return <button onClick= {props.onClick} className = {`${variantStyles[props.variant]} ${defaultStyles} ${sizeStyles[props.size]} cursor-pointer`}> 
 
     {props.startIcon? <div className="pr-2 pl-2">{props.startIcon}</div>: null}
     <div className="pl-2 pr-2">
