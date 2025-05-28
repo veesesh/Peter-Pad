@@ -4,11 +4,13 @@ import jwt from "jsonwebtoken";
 import {userMiddleware} from "./middleware"
 import {JWT_PASSWORD} from "../config.json"
 import { random } from "./utils";
+import cors from "cors";
 
 // const JWT_PASSWORD = "123121212"; 
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.post("/api/v1/signup", async (req,res) => {
     // TO DO: Zod validation and hash password
